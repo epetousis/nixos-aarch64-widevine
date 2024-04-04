@@ -13,7 +13,7 @@ Currently a flake only.
   description = "My system flake";
 
   inputs = {
-    nixos-aarch64-widevine.url = "github:epetousis/nix-aarch64-widevine";
+    nixos-aarch64-widevine.url = "github:epetousis/nixos-aarch64-widevine";
   };
 
   outputs = {
