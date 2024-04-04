@@ -9,7 +9,7 @@
     let
       systems = [ "aarch64-linux" ];
 
-      forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
+      forAllSystems = nixpkgs.lib.genAttrs systems;
     in
       {
         overlays = rec {
