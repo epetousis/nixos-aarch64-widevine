@@ -5,12 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs }:
+    let
+      systems = [ "aarch64-linux" ];
 
-    overlays = rec {
-      nixos-aarch64-widevine-overlay = import ./packages/overlay.nix;
-      default = nixos-aarch64-widevine-overlay;
-    };
-
-  };
+      forAllSystems = inputs.nixpkgs.lib.genAttrs systems;
+    in
+      {
+        overlays = rec {
+          nixos-aarch64-widevine-overlay = import ./packages/overlay.nix;
+          default = nixos-aarch64-widevine-overlay;
+        };
+      };
 }
