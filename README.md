@@ -6,7 +6,7 @@ Currently a flake only.
 
 ## Installation
 
-1. Add this repo as a flake input in your flake.nix:
+Add this repo as a flake input in your flake.nix:
 
 ```nix
 {
@@ -34,13 +34,15 @@ Currently a flake only.
   };
 ```
 
-2. Add Firefox to your system or user-level packages.
+### Firefox-specific setup
 
-3. In your `configuration.nix`, add the Widevine module to the MOZ_GMP_PATH:
+In your `configuration.nix`, add the Widevine module to the MOZ_GMP_PATH:
 
 ```nix
 environment.sessionVariables.MOZ_GMP_PATH = [ "${pkgs.widevine-cdm-lacros}/gmp-widevinecdm/system-installed" ];
 ```
+
+If you can spare some time and can work out how to add an extra env variable to Firefox's wrapper (I could not do either) then please feel free to submit a pull request.
 
 ## Acknowledgements
 
