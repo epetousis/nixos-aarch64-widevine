@@ -9,7 +9,7 @@ final: prev: {
     '';
   }); */
 
-  firefox = prev.firefox.overrideAttrs (p: {
+  firefox = prev.firefox.override (p: {
     extraPrefsFiles = [ "${final.widevine-installer}/conf/gmpwidevine.js" ];
   });
 
